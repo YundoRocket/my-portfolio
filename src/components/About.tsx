@@ -41,7 +41,7 @@ const About = () => {
                             As a Web3 developer, I aim to revolutionize the decentralized landscape by creating 
                             innovative solutions that bridge technology with real-world applications. My journey 
                             is rooted in a passion for crafting intuitive, cutting-edge platforms that empower 
-                            users and communities.
+                            users and communities
                         </p>
                         <div className="mt-6">
                             <ul className="flex gap-4">
