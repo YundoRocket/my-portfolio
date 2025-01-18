@@ -1,25 +1,21 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo } from "react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Engine, ISourceOptions, Container } from "@tsparticles/engine";
+import type { ISourceOptions } from "@tsparticles/engine";
 
 interface ParticlesComponentProps {
-  id?: string;
+  id?: string; // Définit que `id` est une chaîne ou optionnel
 }
 
 const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
   // Initialisation du moteur Particles
   useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
+    initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     });
   }, []);
 
-  const particlesLoaded = (container: Container | undefined) => {
-    console.log("Particles container loaded:", container);
-  };
-
-  const options: ISourceOptions = useMemo(
+  const options = useMemo<ISourceOptions>(
     () => ({
       background: {
         color: {
@@ -89,7 +85,7 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
     []
   );
 
-  return <Particles id={id} init={particlesLoaded} options={options} />;
+  return <Particles id={id} options={options} />;
 };
 
 export default ParticlesComponent;
