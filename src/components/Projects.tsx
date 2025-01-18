@@ -92,7 +92,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="p-10 text-white relative bg-gradient-to-b from-transparent via-secondary to-transparent bg-cover"
+      className="mt-20 p-10 text-white relative bg-gradient-to-b from-transparent via-secondary to-transparent bg-cover"
       style={{
         backgroundImage: "url('/abstractLines.svg')",
       }}

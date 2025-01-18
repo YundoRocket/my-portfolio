@@ -6,7 +6,7 @@ import TechnologiesGrid from "./TechnologiesGrid";
 
 const Hero = () => {
   return (
-    <section className="relative mt-16 flex flex-col items-center justify-center text-center h-screen">
+    <section className="relative mt-32 flex flex-col items-center justify-center text-center">
         <div className="absolute inset-0 w-full h-full pointer-events-none"><ParticulesComponents /></div>
         <motion.div
             className="mt-10 mb-10 relative w-[245px] h-[245px] rounded-full"
