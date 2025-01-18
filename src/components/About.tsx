@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { FaReact, FaEthereum, FaFigma } from "react-icons/fa";
 import { SiNextdotjs, SiSolana } from "react-icons/si";
 

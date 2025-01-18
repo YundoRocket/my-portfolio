@@ -30,7 +30,7 @@ const NavBar = () => {
       <nav className="flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link href="/">YundoRocket</Link>
+          <Link href="/">Portfolio</Link>
         </div>
 
         {/* Navigation Desktop */}

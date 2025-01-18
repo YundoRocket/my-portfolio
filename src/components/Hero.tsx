@@ -4,13 +4,6 @@ import Image from "next/image";
 import ParticulesComponents from "./ParticulesComponents";
 import TechnologiesGrid from "./TechnologiesGrid";
 
-import {
-    FaReact,
-    FaEthereum,
-    FaFigma,
-  } from "react-icons/fa";
-  import { SiNextdotjs, SiSolana } from "react-icons/si";
-
 const Hero = () => {
   return (
     <section className="relative mt-16 flex flex-col items-center justify-center text-center h-screen">
@@ -54,7 +47,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
         >
-            Hi, I'm Yundo Rocket
+            Hi, I&apos;m Yundo Rocket
         </motion.div>
 
         <motion.div
