@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import AnimatedButton from "@/components/AnimatedButton";
 import Image from "next/image";
-import ParticulesComponent from "./ParticlesComponent";
+import ParticulesComponents from "./ParticulesComponents";
+import TechnologiesGrid from "./TechnologiesGrid";
 
 import {
     FaReact,
@@ -13,167 +13,125 @@ import {
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-b from-background via-dark-blue to-background flex flex-col items-center justify-center text-center">
+    <section className="relative mt-16 flex flex-col items-center justify-center text-center h-screen">
+        <div className="absolute inset-0 w-full h-full pointer-events-none"><ParticulesComponents /></div>
         <motion.div
             className="mt-10 mb-10 relative w-[245px] h-[245px] rounded-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
         >
-        {/* Gradient Layer */}
-        <motion.div
-            className="absolute inset-0 rounded-full"
-            style={{
-                background: "linear-gradient(90deg, #ff00ff, #FFBCFF, #071E48, #273184, #071E48, #FFBCFF)",
-                backgroundSize: "260% 260%",
-            }}
-            animate={{
-                backgroundPosition: ["0% 50%", "25% 45%", "50% 50%", "75% 25%", "100% 50%", "80% 30%", "23% 59%", "10% 39%", ],
-            }}
-            transition={{
-                duration: 4,
-                ease: "linear",
-                repeat: Infinity,
-            }}
-        />
-
-        {/* Image */}
-        <div className="absolute inset-0.5 rounded-full">
-            <Image
-                src="/yundoRocket.png"
-                height={250}
-                width={250}
-                alt="Yundo Rocket"
-                className="rounded-full"
+            <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                    background: "linear-gradient(90deg, #ffffff, #273184, #ffffff, #273184, #ffffff, #273184)",
+                    backgroundSize: "260% 260%",
+                }}
+                animate={{
+                    backgroundPosition: ["0% 50%", "25% 45%", "50% 50%", "75% 25%", "100% 50%", "80% 30%", "23% 59%", "10% 39%", ],
+                }}
+                transition={{
+                    duration: 4,
+                    ease: "linear",
+                    repeat: Infinity,
+                }}
             />
-        </div>
-    </motion.div>
-      <motion.div
-        className="text-4xl sm:text-6xl font-bold text-white"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Hi, I'm Yundo Rocket
-      </motion.div>
 
-      <motion.div
-        className="text-lg sm:text-2xl text-light-pink mt-4"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        Building Web3 experiences, one line of code at a time.
-      </motion.div>
+            <div className="absolute inset-0.5 rounded-full">
+                <Image
+                    src="/yundoRocket.png"
+                    height={250}
+                    width={250}
+                    alt="Yundo Rocket"
+                    className="rounded-full"
+                />
+            </div>
+
+        </motion.div>
+        <motion.div
+            className="relative text-4xl sm:text-6xl font-bold text-white"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+        >
+            Hi, I'm Yundo Rocket
+        </motion.div>
+
+        <motion.div
+            className="text-lg sm:text-2xl text-light-pink mt-4 relative overflow-hidden"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            >
+            <span className="relative inline-block">
+                <motion.span
+                    className="absolute inset-0 bg-gradient-to-r from-light-pink via-white to-blue-200 bg-clip-text text-transparent"
+                    style={{
+                        backgroundSize: "300% 300%", 
+                    }}
+                    animate={{
+                        backgroundPosition: ["300% 0", "-300% 0"],
+                    }}
+                    transition={{
+                        duration: 10,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                    }}
+                >
+                    Building Web3 experiences, one line of code at a time.
+                </motion.span>
+                <span className="opacity-0">Building Web3 experiences, one line of code at a time.</span>
+            </span>
+        </motion.div>
 
       <div className="flex gap-4 mt-8">
-        <motion.div
+        <motion.a
             initial={{ opacity: 0, filter: "blur(10px)"}}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 1 }}
+            className="flex items-center justify-center"
+            href="#projects"
         >
-            <AnimatedButton>
-                <a
-                    href="#projects"
-                    className=""
-                >
-                    See My Projects
-                </a>
-            </AnimatedButton>
-        </motion.div>
+            <motion.div
+                className="px-4 py-2 font-bold rounded-full  text-white"
+                style={{
+                    backdropFilter: "blur(10px)",
+                    backgroundColor: "rgba(255, 188, 255, 0.1)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: "0.5px solid rgba(255, 188, 255, 0.2)",
+                }}
+                whileHover={{scale: 0.95}}
+                whileTap={{scale: 1.05}}
+            >
+                
+                See My Projects
+            </motion.div>
+        </motion.a>
         
-        <motion.div
+        <motion.a
             initial={{ opacity: 0, filter: "blur(10px)"}}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 1.4 }}
+            className="flex items-center justify-center"
+            href="#contact"
         >
-            <AnimatedButton restColor="#FFBCFF" borderEnabled={true}>
-                <a
-                    href="#contact"
-                    className=""
-                >
-                    Contact Me
-                </a>
-            </AnimatedButton>
-        </motion.div>
-        
+            <motion.div
+                className="px-4 py-2 font-bold rounded-full  text-white"
+                style={{
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    backgroundColor: "rgba(20, 20, 20, 0.6)", 
+                    border: "0.5px solid rgba(255, 255, 255, 0.2)",
+                }}
+                whileHover={{scale: 0.95}}
+                whileTap={{scale: 1.05}}
+            >
+                
+                Contact Me
+            </motion.div>
+        </motion.a>
       </div>
-
-      <div className="mt-10 w-full flex items-center justify-center">
-        <motion.div
-            className="p-5 lg:p-20 w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-        >
-            {/* React */}
-            <motion.div className="flex flex-col items-center space-y-2 cursor-pointer"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 1}}
-                onClick={() => window.open("https://react.dev/", "_blank")} 
-            >
-                <FaReact key="react" className="text-4xl md:text-5xl text-white" />
-                <div className="text-white text-sm md:text-base">React</div>
-            </motion.div>
-
-            {/* Next.js */}
-            <motion.div className="flex flex-col items-center space-y-2 cursor-pointer"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 1}}
-                onClick={() => window.open("https://nextjs.org/", "_blank")} 
-            >
-                <SiNextdotjs key="next" className="text-4xl md:text-5xl text-white" />
-                <div className="text-white text-sm md:text-base">Next.js</div>
-            </motion.div>
-
-            {/* Figma */}
-            <motion.div className="flex flex-col items-center space-y-2 cursor-pointer"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 1}}
-                onClick={() => window.open("https://www.figma.com/", "_blank")} 
-            >
-                <FaFigma key="figma" className="text-4xl md:text-5xl text-white" />
-                <div className="text-white text-sm md:text-base">Figma</div>
-            </motion.div>
-
-            {/* Blender */}
-            <motion.div className="flex flex-col items-center space-y-2 cursor-pointer"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 1}}
-                onClick={() => window.open("https://www.blender.org/", "_blank")} 
-            >
-                <Image
-                    src={"/blender-logo.svg"}
-                    height={55}
-                    width={55}
-                    alt="blender-logo"
-                    className="w-12 h-12 md:w-14 md:h-14"
-                />
-                <div className="text-white text-sm md:text-base">Blender</div>
-            </motion.div>
-
-            {/* Ethereum */}
-            <motion.div className="flex flex-col items-center space-y-2 cursor-pointer"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 1}}
-                onClick={() => window.open("https://ethereum.org/", "_blank")} 
-            >
-                <FaEthereum key="ethereum" className="text-4xl md:text-5xl text-white" />
-                <div className="text-white text-sm md:text-base">Ethereum</div>
-            </motion.div>
-
-            {/* Solana */}
-            <motion.div className="flex flex-col items-center space-y-2 cursor-pointer"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 1}}
-                onClick={() => window.open("https://solana.com/", "_blank")} 
-            >
-                <SiSolana key="solana" className="text-4xl md:text-5xl text-white" />
-                <div className="text-white text-sm md:text-base">Solana</div>
-            </motion.div>
-        </motion.div>
-        <ParticulesComponent/>
-      </div>
+      <TechnologiesGrid />
     </section>
   );
 };

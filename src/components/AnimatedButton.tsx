@@ -13,8 +13,8 @@ const AnimatedButton: React.FC<ButtonProps> = ({
   children,
   onClick,
   restColor = "#FFFFFF",
-  hoverColor = "#080308",
-  borderEnabled = false, 
+  hoverColor = "#FFFFFF",
+  borderEnabled = false,
 }) => {
   const backgroundVariants: Variants = {
     rest: { scale: 0 },
@@ -29,7 +29,7 @@ const AnimatedButton: React.FC<ButtonProps> = ({
   return (
     <motion.button
       onClick={onClick}
-      className={`relative overflow-hidden px-3 py-2 font-bold rounded-full ${
+      className={`relative overflow-hidden px-4 py-2 font-bold rounded-full ${
         borderEnabled ? `border-2` : ""
       }`}
       style={{
@@ -41,9 +41,15 @@ const AnimatedButton: React.FC<ButtonProps> = ({
     >
       {/* Background Layer */}
       <motion.div
-        className="absolute inset-0 bg-light-pink z-0 rounded-full"
+        className="absolute inset-1 z-0 rounded-full"
         variants={backgroundVariants}
         transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          backgroundColor: "rgba(20, 20, 20, 0.6)", // Couleur semi-transparente
+          border: "0.5px solid rgba(255, 255, 255, 0.2)", // Bordure translucide
+        }}
       />
       {/* Text Layer */}
       <motion.span
