@@ -101,14 +101,14 @@ const NavBar = () => {
                 Home
               </Link>
               <Link
-                href="/about"
+                href="#about"
                 className="text-lg font-bold hover:text-light-pink"
                 onClick={toggleMobileMenu}
               >
                 About
               </Link>
               <Link
-                href="/projects"
+                href="#projects"
                 className="text-lg font-bold hover:text-light-pink"
                 onClick={toggleMobileMenu}
               >
