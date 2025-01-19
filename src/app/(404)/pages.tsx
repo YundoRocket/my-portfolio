@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NotFoundPage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center  text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center text-white">
       <motion.h1
         className="text-6xl font-bold mb-4"
         initial={{ opacity: 0, y: -50 }}
@@ -19,7 +19,7 @@ const NotFoundPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Oops! The page you're looking for doesn't exist.
+        Oops! The page you&apos;re looking for doesn&apos;t exist.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
