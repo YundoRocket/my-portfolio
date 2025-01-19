@@ -42,12 +42,17 @@ const NavBar = () => {
           </li>
           <li>
             <AnimatedButton>
+              <Link href="#projects">Projects</Link>
+            </AnimatedButton>
+          </li>
+          <li>
+            <AnimatedButton>
               <Link href="#about">About</Link>
             </AnimatedButton>
           </li>
           <li>
             <AnimatedButton>
-              <Link href="#projects">Projects</Link>
+              <Link href="#skills">Skills</Link>
             </AnimatedButton>
           </li>
         </ul>
@@ -101,18 +106,26 @@ const NavBar = () => {
                 Home
               </Link>
               <Link
+                href="#projects"
+                className="text-lg font-bold hover:text-light-pink"
+                onClick={toggleMobileMenu}
+              >
+                Projects
+              </Link>
+              <Link
                 href="#about"
                 className="text-lg font-bold hover:text-light-pink"
                 onClick={toggleMobileMenu}
               >
                 About
               </Link>
+              
               <Link
-                href="#projects"
+                href="#skills"
                 className="text-lg font-bold hover:text-light-pink"
                 onClick={toggleMobileMenu}
               >
-                Projects
+                Skills
               </Link>
             </motion.div>
           )}

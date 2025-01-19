@@ -19,6 +19,7 @@ const projects = [
       <SiNextdotjs key="next" />,
       <SiSolana key="solana" />,
     ],
+    date: "Nov 2024 - Current",
     link: "https://girasol.fun",
   },
   {
@@ -40,6 +41,7 @@ const projects = [
         key="blender"
       />,
     ],
+    date: "Mars 2023 - Current",
     link: "https://BattleBoosters.com",
   },
   {
@@ -59,6 +61,7 @@ const projects = [
         key="terra"
       />,
     ],
+    date: "Jan 2021 - Jun 2022",
     link: "https://github.com/loterra",
   },
 ];
@@ -142,15 +145,29 @@ const Projects = () => {
                 <h3 className="text-2xl font-bold">{project.title}</h3>
               </div>
               <p className="text-sm text-light-pink mt-2">{project.description}</p>
-              <div className="flex gap-4 mt-4 text-lg">
-                {project.tech.map((icon, index) => (
-                  <div
-                    key={`tech-icon-${project.id}-${index}`}
-                    className="text-white"
-                  >
-                    {icon}
-                  </div>
-                ))}
+
+              <div className="flex items-center mt-4 space-x-4">
+                <div className="flex gap-4 text-lg">
+                  {project.tech.map((icon, index) => (
+                    <div
+                      key={`tech-icon-${project.id}-${index}`}
+                      className="text-white"
+                    >
+                      {icon}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-xs px-2 py-1"
+                  style={{
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    backgroundColor: "rgba(20, 20, 20, 0.6)",
+                    border: "0.5px solid rgba(255, 255, 255, 0.2)",
+                    borderRadius: "20px",
+                  }}
+                >
+                  {project.date}
+                </div>
               </div>
               <div className="mt-6">
                 <motion.a
