@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const About = () => {
@@ -23,7 +23,7 @@ const About = () => {
 const HorizontalScrollSection = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: targetRef, // Définit la cible pour détecter le scroll
+    target: targetRef,
   });
 
   // Conversion du scroll vertical en mouvement horizontal
@@ -51,7 +51,7 @@ const HorizontalScrollSection = () => {
       image: "/languages.webp",
     },
     {
-      title: "Crafting Elegant Code and Interfaces",
+      title: "Crafting Code and Interfaces",
       text: "I love coding and solving complex problems. As a frontend developer, I create intuitive and elegant user interfaces.",
       image: "/coding.webp",
     },
@@ -71,7 +71,6 @@ const HorizontalScrollSection = () => {
       image: "/future-web3.webp",
     },
   ];
-  
 
   return (
     <section
@@ -85,7 +84,7 @@ const HorizontalScrollSection = () => {
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         {/* Horizontal Scrolling Cards */}
         <motion.div
-          style={{ x }} // Lie le mouvement horizontal au scroll vertical
+          style={{ x }}
           className="flex gap-10 px-10 snap-x snap-mandatory"
         >
           {cards.map((card, index) => (
@@ -98,8 +97,12 @@ const HorizontalScrollSection = () => {
 };
 
 const Card = ({ title, text, image }) => {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { margin: "-30% 0px -30% 0px" });
+
   return (
     <motion.div
+      ref={cardRef}
       className="group h-[500px] w-[380px] lg:w-[1200px] snap-center flex-shrink-0 overflow-hidden flex flex-col lg:flex-row"
       style={{
         backdropFilter: "blur(10px)",
@@ -108,14 +111,19 @@ const Card = ({ title, text, image }) => {
         border: "0.5px solid rgba(255, 255, 255, 0.2)",
         borderRadius: "20px",
       }}
+      initial={{ scale: 0.8 }} // Taille initiale réduite
+      animate={{
+        scale: isInView ? 1 : 0.2, // Grandit lorsqu'elle est dans la vue
+        transition: { duration: 0.5, ease: "easeOut" }, // Animation fluide
+      }}
     >
       {/* Image Section */}
-      <div
+      <motion.div
         className="h-64 lg:h-full lg:w-1/2 bg-cover"
         style={{
           backgroundImage: `url(${image})`,
         }}
-      ></div>
+      ></motion.div>
 
       {/* Text Section */}
       <motion.div className="flex flex-col items-start justify-center p-4 space-y-4 lg:w-1/2">
