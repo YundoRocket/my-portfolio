@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section id="about" className="text-white relative">
       {/* Header Section */}
-      <div className="text-center mt-20">
+      <div className="text-center mt-32">
         <motion.h1 className="text-6xl lg:text-9xl font-bold">About Me</motion.h1>
         <motion.p className="text-xl mt-10 p-4">
           Discover my mission, journey, and vision.
